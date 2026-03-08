@@ -1,7 +1,7 @@
 <?php
-	$mysqli = new mysqli('127.0.0.1', 'root', '', 'security');
-	
-	function getClientIP() {
+    $mysqli = new mysqli('127.0.0.1', 'root', '', 'security');
+    
+    function getClientIP() {
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             return $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
@@ -16,15 +16,12 @@
     setcookie("IP", $user_ip, [
         'expires' => time() + 3600,
         'path' => '/',
-        'secure' => true,
-        'httponly' => true
-    ]);
-    
-    setcookie("Datetime", date("Y-m-d H:i:s"), [
-        'expires' => time() + 3600,
-        'path' => '/',
-        'secure' => true,
         'httponly' => true
     ]);
 
+    setcookie("Datetime", date("Y-m-d H:i:s"), [
+        'expires' => time() + 3600,
+        'path' => '/',
+        'httponly' => true
+    ]);
 ?>
